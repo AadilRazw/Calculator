@@ -8,33 +8,44 @@ for(item of buttons){
         if (buttontext == "X"){
             buttontext = "*";
             screenValue += buttontext;
-            screen.value = screenValue;
+            screen.innerText = screenValue;
 
         }
 
         else if(buttontext == "C"){
             screenValue = "";
-            screen.value = screenValue;
+            screen.innerText = screenValue;
         }
 
         else if(buttontext == "="){
             screenValue = eval(screenValue);
             
-            screen.value = screenValue;
+            screen.innerText = screenValue;
 
         }
 
         else if(buttontext == "Del"){
             screenValue = screenValue.slice(0,-1)
-            screen.value = screenValue;
+            screen.innerText = screenValue;
         }
         
 
         else{
             screenValue += buttontext;
-            screen.value = screenValue;
+            screen.innerText = screenValue;
         }
 
+    })
+
+
+    document.addEventListener("keydown",(e)=>{
+        if(e.key == "Enter"){
+            screenValue = eval(screenValue);
+            screen.innerText = screenValue;
+        }
+        else if(e.key == "Backspace"){
+            console.log(e.key)
+        }
     })
 
 }
